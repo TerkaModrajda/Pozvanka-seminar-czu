@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="Assets/favicon_czu_square.png">
+
+  <title>Seminář (nejen)&nbsp;o&nbsp;kybernetické bezpečnosti | 10.–11. listopadu 2026</title>
+
+  <style>
+    :root {
+      --navy: #3f3f3d;
+      --navy2: #3f3f3d;
+      --green: #73bd40;
+      --mint: #e6f3dd;
+      --text: #333333;
+      --muted: #666666;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #f4f4f2;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: auto;
+      background: #ffffff;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero {
+      background: #ffffff;
+      color: #333333;
+      padding: 52px 64px 46px;
+      position: relative;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .organizer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      min-height: 60px;
+    }
+
+    .logo img {
+      display: block;
+      width: 220px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .date {
+      text-align: right;
+      color: var(--green);
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 0.9;
+    }
+
+    .date span {
+      display: block;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin-top: 8px;
+    }
+
+    h1 {
+      max-width: 720px;
+      font-size: 42px;
+      line-height: 1.02;
+      margin: 34px 0 12px;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .lead {
+      max-width: 970px;
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.35;
+      color: #dce7e6;
+    }
+
+    .print-button {
+      margin-top: 0;
+      padding: 12px 20px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--green);
+      color: #ffffff;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .print-button:hover {
+      filter: brightness(0.95);
+    }
+
+    .pdf-status {
+      margin: 8px 0 0;
+      color: #dce7e6;
+      font-size: 14px;
+    }
+
+    .pdf-status:empty {
+      display: none;
+    }
+
+    /* =========================
+       PROGRAM
+       ========================= */
+
+    main {
+      padding: 35px 64px 0;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 34px;
+      text-transform: uppercase;
+      color: #333333;
+    }
+
+    .meta {
+      margin: 7px 0 16px;
+      color: #666666;
+      font-size: 17px;
+    }
+
+    .rule {
+      height: 3px;
+      background: var(--green);
+      margin-bottom: 18px;
+    }
+
+    .program {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .day {
+      padding: 4px 32px 5px 0;
+    }
+
+    .day + .day {
+      border-left: 1px solid var(--green);
+      padding-left: 32px;
+      padding-right: 0;
+    }
+
+    .day-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      color: #777777;
+      text-transform: uppercase;
+      font-size: 15px;
+    }
+
+    .day-head strong {
+      color: #4b8828;
+      font-size: 31px;
+    }
+
+    .item {
+      padding: 0 0 17px;
+      margin: 0 0 17px;
+      border-bottom: 1px solid #d8d8d5;
+    }
+
+    .item:last-child {
+      border-bottom: 0;
+    }
+
+    .item h3 {
+      margin: 0 0 7px;
+      font-size: 17px;
+      line-height: 1.08;
+      text-transform: uppercase;
+      color: #333333;
+    }
+
+    .item p {
+      margin: 0;
+      color: #626262;
+      font-size: 16px;
+      line-height: 1.23;
+    }
+
+
+    /* =========================
+       PRO KOHO
+       ========================= */
+
+    .audience {
+      margin: 26px 24px 26px;
+      padding: 22px 40px;
+      background: var(--mint);
+    }
+
+    .audience strong {
+      display: block;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .audience p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .partners {
+      margin: 36px 24px 40px;
+    }
+
+    .partners h2 {
+      margin-bottom: 20px;
+      font-size: 26px;
+    }
+
+    .partner-logos {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .partner-logo {
+      height: 130px;
+      padding: 18px;
+      background: #f8f8f6;
+      border: 1px solid #dededb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .partner-logo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .partner-organizer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 30px;
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .partner-organizer-logo {
+      display: block;
+      width: 160px;
+      height: auto;
+      object-fit: contain;
+    }
+
+
+    /* =========================
+       REGISTRACE
+       ========================= */
+
+    .registration {
+      background: #3f3f3d;
+
+      padding: 34px 64px 42px;
+      color: white;
+
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 50px;
+
+      align-items: center;
+    }
+
+    .registration h2 {
+      color: var(--green);
+      font-size: 26px;
+    }
+
+    .registration p {
+      max-width: 620px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 14px;
+
+      background: var(--green);
+      color: #ffffff;
+
+      padding: 15px 50px;
+      border-radius: 8px;
+
+      font-weight: 900;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      filter: brightness(0.95);
+    }
+
+    .contact {
+      margin-top: 20px !important;
+      color: #eeeeee;
+      font-weight: 400 !important;
+    }
+
+    .contact a {
+      color: #fff;
+    }
+
+    .qr {
+      width: 160px;
+      height: 160px;
+
+      background: transparent;
+      border: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      color: #16936e;
+      font-weight: 900;
+
+      margin-left: auto;
+      overflow: hidden;
+    }
+
+    .qr img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: transparent;
+    }
+
+
+    /* =========================
+       MOBIL
+       ========================= */
+
+    @media (max-width: 760px) {
+
+      .hero,
+      main,
+      .registration {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .hero-top {
+        display: block;
+      }
+
+      .header-actions {
+        flex-wrap: wrap;
+        row-gap: 12px;
+      }
+
+      .date {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        margin-top: 0;
+        line-height: 1;
+      }
+
+      .date span {
+        margin-top: 8px;
+        line-height: 1.2;
+      }
+
+      h1 {
+        font-size: 33px;
+      }
+
+      .program {
+        grid-template-columns: 1fr;
+      }
+
+      .day,
+      .day + .day {
+        padding: 12px 0;
+        border-left: 0;
+      }
+
+      .day + .day {
+        border-top: 2px solid var(--green);
+        margin-top: 10px;
+      }
+
+      .audience {
+        margin: 20px 0;
+      }
+
+      .partners {
+        margin: 28px 0 32px;
+      }
+
+      .partner-logos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .partner-logo {
+        height: 110px;
+        padding: 14px;
+      }
+
+      .registration {
+        grid-template-columns: 1fr;
+      }
+
+      .qr {
+        margin: 0;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 5mm;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        max-width: none;
+        margin: 0;
+        box-shadow: none;
+      }
+
+      .hero,
+      .registration,
+      .audience,
+      .partner-logo,
+      .rule {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .print-button,
+      .pdf-status {
+        display: none;
+      }
+
+      .hero {
+        padding: 14px 24px 12px;
+      }
+
+      .logo img {
+        width: 145px;
+      }
+
+      .date {
+        font-size: 32px;
+      }
+
+      .date span {
+        font-size: 14px;
+      }
+
+      h1 {
+        margin: 16px 0 8px;
+        font-size: 29px;
+      }
+
+      .lead {
+        font-size: 12px;
+      }
+
+      main {
+        padding: 12px 24px 0;
+      }
+
+      main > h2 {
+        font-size: 24px;
+      }
+
+      .meta {
+        margin: 4px 0 7px;
+        font-size: 12px;
+      }
+
+      .rule {
+        margin-bottom: 8px;
+      }
+
+      .program {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .day {
+        padding: 3px 12px 4px 0;
+      }
+
+      .day + .day {
+        padding: 3px 0 4px 12px;
+        padding-right: 0;
+      }
+
+      .day-head {
+        margin-bottom: 6px;
+        font-size: 11px;
+      }
+
+      .day-head strong {
+        font-size: 20px;
+      }
+
+      .item {
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+      }
+
+      .item h3 {
+        margin-bottom: 3px;
+        font-size: 11px;
+      }
+
+      .item p {
+        font-size: 10px;
+        line-height: 1.15;
+      }
+
+      .audience {
+        margin: 8px 8px;
+        padding: 9px 14px;
+        font-size: 10px;
+      }
+
+      .audience p {
+        font-size: 10px;
+      }
+
+      .partners {
+        margin: 9px 8px 10px;
+      }
+
+      .partners h2 {
+        margin-bottom: 6px;
+        font-size: 18px;
+      }
+
+      .partner-logos {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 6px;
+      }
+
+      .partner-logo {
+        height: 48px;
+        padding: 5px;
+      }
+
+      .registration {
+        padding: 12px 24px;
+        grid-template-columns: 1fr 90px;
+        gap: 14px;
+      }
+
+      .registration h2 {
+        font-size: 19px;
+      }
+
+      .registration p {
+        margin: 6px 0;
+        font-size: 10px;
+      }
+
+      .button {
+        margin-top: 4px;
+        padding: 8px 18px;
+        font-size: 10px;
+      }
+
+      .contact {
+        margin-top: 7px !important;
+      }
+
+      .qr {
+        width: 78px;
+        height: 78px;
+      }
+
+      .item,
+      .day-head,
+      .audience,
+      .partners,
+      .partner-logo {
+        break-inside: avoid;
+      }
+    }
+  
+    /* ČZU visual theme */
+    .hero { border-bottom: 1px solid #e2e2df; }
+    .logo img { width: 340px; }
+    .date span, h1 { color: #333; }
+    .lead, .pdf-status { color: #626262; }
+    h1 { max-width: 100%; line-height: 1.08; }
+    .print-button, .button { border-radius: 2px; background: var(--green); color: #243719; }
+    .registration h2 { color: #a7df80; }
+    .registration .button { background: var(--green); }
+    .partner-heading { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-bottom:20px; }
+    .partner-heading h2 { margin-bottom:0; }
+    .organizer-logo { display:block; width:220px; height:auto; object-fit:contain; }
+    .qr { background:white; width:180px; height:180px; }
+    @media(max-width:760px) { .partner-heading { flex-wrap:wrap; } .logo img { width:300px; } .organizer-logo { width:min(220px, 55vw); } }
+    @media print { .logo img { width:200px; } .organizer-logo { width:180px; height:auto; } .partner-heading { margin-bottom:6px; } .qr { width:90px; height:90px; } }
+
+  </style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+  <!-- =========================
+       HEADER
+       ========================= -->
+
+  <header class="hero">
+
+    <div class="hero-top">
+
+      <div class="logo">
+        <img src="Assets/czu_cz.png" alt="Česká zemědělská univerzita v Praze">
+      </div>
+
+      <div class="date">
+        10.–11.
+        <span>LISTOPADU 2026</span>
+      </div>
+
+    </div>
+
+
+    <h1>
+      Seminář (nejen)<br>
+      o kybernetické bezpečnosti
+    </h1>
+
+    <p class="lead">
+      Rozhodnutí o&nbsp;bezpečnosti, posilování odolnosti a&nbsp;kontinuitě provozu nese vedení
+      organizace. <br> Přijďte si na konkrétních případech ověřit,
+      co bývá kritické, co se dá odložit a&nbsp;kde se nejčastěji chybuje.
+    </p>
+
+    <div class="header-actions">
+      <button class="print-button" type="button">
+        Stáhnout pozvánku jako PDF
+      </button>
+      <div class="organizer">
+        <span>Organizátor</span>
+        <img class="organizer-logo" src="Assets/OAD_logo_primary_RGB.png" alt="Open Apps Development">
+      </div>
+    </div>
+    <p class="pdf-status" id="pdf-status" role="status" aria-live="polite"></p>
+
+  </header>
+
+
+  <!-- =========================
+       PROGRAM
+       ========================= -->
+
+  <main>
+
+    <h2>Program</h2>
+
+    <div class="meta">
+      10.–11. listopadu 2026 / Hotel Akademie Naháč
+    </div>
+
+    <div class="rule"></div>
+
+
+    <section class="program">
+
+      <!-- ÚTERÝ -->
+
+      <div class="day">
+
+        <div class="day-head">
+          <span>Úterý</span>
+          <strong>10. 11.</strong>
+        </div>
+
+        <article class="item">
+
+          <h3>
+            Provozní odolnost: finance, energetika a&nbsp;digitální produkty
+          </h3>
+
+          <p>
+            <strong>Ondřej Vízner</strong> z Broker Trustu a&nbsp;další vystupující: co v praxi znamená nařízení DORA ve&nbsp;finančním sektoru, jak se na&nbsp;výpadky připravuje energetika a&nbsp;jaké požadavky přináší nařízení o&nbsp;kybernetické odolnosti (CRA) pro výrobce produktů se softwarem i&nbsp;organizace, které je nakupují.
+          </p>
+
+        </article>
+
+
+        <article class="item">
+
+          <h3>
+            Řízení bezpečnosti a&nbsp;krizových situací v&nbsp;komerčních organizacích
+          </h3>
+
+          <p>
+            Skutečné případy z provozu: co se dělo při výpadku, kdo a&nbsp;jak rychle se o&nbsp;něm dozvěděl, jaká rozhodnutí muselo přijmout vedení a&nbsp;co se ukázalo jako zásadní pro obnovení provozu.
+          </p>
+
+        </article>
+
+
+        <article class="item">
+
+          <h3>
+            Kontinuita provozu a&nbsp;analýza dopadů
+          </h3>
+
+          <p>
+            <strong>Aleš Špidla</strong> z&nbsp;CEVRO univerzity a&nbsp;otevřená diskuze o&nbsp;tom, jak dlouho organizace zvládne výpadek, které činnosti a&nbsp;systémy musí chránit přednostně a&nbsp;v jakém pořadí je obnovovat. Ukážeme si, jak z&nbsp;analýzy dopadů (BIA) vytvořit plán použitelný při skutečné krizi. U&nbsp;organizací, kterým tuto povinnost ukládá legislativa, je řízení kontinuity také povinným bezpečnostním opatřením, za jehož zajištění odpovídá vedení.
+          </p>
+
+        </article>
+
+
+        <article class="item">
+
+          <h3>
+            Večerní networking
+          </h3>
+
+          <p>
+            Společná večeře a&nbsp;prostor pro neformální diskuzi, sdílení zkušeností a&nbsp;navázání kontaktů s&nbsp;řečníky i&nbsp;ostatními účastníky.
+          </p>
+
+        </article>
+
+      </div>
+
+
+      <!-- STŘEDA -->
+
+      <div class="day">
+
+        <div class="day-head">
+          <span>Středa</span>
+          <strong>11. 11.</strong>
+        </div>
+
+
+        <article class="item">
+
+          <h3>
+            Legislativa: co platí a&nbsp;kde se povinnosti překrývají
+          </h3>
+
+          <p>
+            <strong>Miroslav Pavelka</strong> z&nbsp;České zemědělské univerzity v&nbsp;Praze představí povinnosti vyplývající z&nbsp;nového zákona o&nbsp;kybernetické bezpečnosti, zákona o&nbsp;kritické infrastruktuře a&nbsp;krizového zákona. Vysvětlí rozdíly mezi režimem vyšších a&nbsp;nižších povinností a&nbsp;priority při zavádění požadovaných opatření.
+          </p>
+
+        </article>
+
+
+        <article class="item">
+
+          <h3>
+            Krizové řízení v&nbsp;nemocnici: scénář, cvičení, ostrá situace
+          </h3>
+
+          <p>
+            <strong>Daniel Naivert</strong> z&nbsp;Fakultní nemocnice Ostrava přiblíží, jak se připravují krizové scénáře, jak se jejich funkčnost ověřuje při cvičeních a&nbsp;testech a co prověří až skutečná událost v&nbsp;provozu, který nelze zastavit.
+          </p>
+
+        </article>
+
+
+        <article class="item">
+
+          <h3>
+            Umělá inteligence: pravidla a&nbsp;kontrola
+          </h3>
+
+          <p>
+            Jaké povinnosti a&nbsp;bezpečnostní rizika přináší používání AI a&nbsp;jak nastavit pravidla s&nbsp;ohledem na ochranu dat a&nbsp;systém řízení bezpečnosti informací (ISMS). Součástí budou živé ukázky, jak zjistit, kam data z&nbsp;AI nástrojů odcházejí.
+          </p>
+
+        </article>
+
+
+        <article class="item">
+
+          <h3>
+            Technologie a&nbsp;data: jak ověřit, že opatření fungují
+          </h3>
+
+          <p>
+            Jak penetrační testy a&nbsp;etický hacking odhalují cesty, kterými může útočník do&nbsp;organizace proniknout. Zaměříme se také na ověření, zda a&nbsp;jak rychle organizace útok zaznamená, a&nbsp;na to, jak podle výsledků určit priority nápravných opatření.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PRO KOHO
+         ========================= -->
+
+    <section class="audience">
+
+      <strong>Pro koho</strong>
+
+      <p>
+        Vedení a&nbsp;odpovědní pracovníci veřejné správy, obcí, měst, krajů, nemocnic, zřizovaných organizací, kritické
+infrastruktury a&nbsp;komerčních společností.
+      </p>
+
+    </section>
+
+    <section class="partners" aria-labelledby="partners-heading">
+
+      <div class="partner-organizer">
+        <span>Organizátor semináře</span>
+        <img class="partner-organizer-logo" src="Assets/OAD_logo_primary_RGB.png" alt="Open Apps Development">
+      </div>
+
+      <h2 id="partners-heading">Partneři semináře</h2>
+
+      <div class="partner-logos">
+        <div class="partner-logo">
+          <img src="Assets/ngss_logo.svg" alt="NGSS">
+        </div>
+        <div class="partner-logo">
+          <img src="Assets/PERITRA_logo.png" alt="Peritra">
+        </div>
+        <div class="partner-logo">
+          <img src="Assets/CZU_logo.png" alt="Česká zemědělská univerzita v Praze">
+        </div>
+        <div class="partner-logo">
+          <img src="Assets/dns-logo.png" alt="DNS">
+        </div>
+        <div class="partner-logo">
+          <img src="Assets/cevro_logo.jpg" alt="CEVRO Univerzita">
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       REGISTRACE
+       ========================= -->
+
+  <footer class="registration">
+
+    <div>
+
+      <h2>Registrace</h2>
+
+      <p>
+        Kapacita semináře je omezená.
+        Zaregistrujte se pomocí QR kódu
+        nebo registračního formuláře.
+      </p>
+
+      <p>
+        Přesný harmonogram bude dostupný nejpozději 26. 10. 2026.
+      </p>
+
+
+      <!--
+      SEM POTOM VLOŽ SKUTEČNÝ ODKAZ
+      například:
+
+      href="https://openapps.cz/registrace"
+      -->
+
+      <a
+        class="button"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSfI2gcTMn72gzF2Ot-kEs3qLH5UZHdK9OpFA0NrPHE-iIQo8w/viewform?usp=publish-editor"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Registrační formulář
+      </a>
+
+
+      <p class="contact">
+        Kontakt: <a href="mailto:tereza.modrackova@openapps.cz">tereza.modrackova@openapps.cz</a>
+      </p>
+
+    </div>
+
+
+    <!--
+    SEM POZDĚJI MŮŽEME VLOŽIT
+    SKUTEČNÝ QR KÓD
+    -->
+
+    <div class="qr">
+      <img src="Assets/QR_registrace_CZU.png" alt="QR kód pro registraci">
+    </div>
+
+  </footer>
+
+</div>
+
+<script src="Assets/jspdf.umd.min.js"></script>
+<script>
+  const pdfButton = document.querySelector(".print-button");
+  const pdfStatus = document.querySelector("#pdf-status");
+  const page = document.querySelector(".page");
+
+  pdfButton.addEventListener("click", async () => {
+    pdfButton.disabled = true;
+    pdfStatus.textContent = "Připravuji PDF…";
+
+    try {
+      if (!window.jspdf?.jsPDF) {
+        throw new Error("Knihovna pro vytvoření PDF se nenačetla.");
+      }
+
+      const images = await Promise.all(
+        Array.from(page.querySelectorAll("img"), async image => {
+          await image.decode();
+          const canvas = document.createElement("canvas");
+          canvas.width = image.naturalWidth;
+          canvas.height = image.naturalHeight;
+          const context = canvas.getContext("2d");
+
+          if (!context) {
+            throw new Error(`Nepodařilo se připravit logo ${image.alt} do PDF.`);
+          }
+
+          context.drawImage(image, 0, 0);
+          return [image, canvas.toDataURL("image/png")];
+        })
+      );
+      const imageData = new Map(images);
+      const fontFiles = await Promise.all([
+        fetch("Assets/DejaVuSans.ttf").then(response => {
+          if (!response.ok) {
+            throw new Error("Nepodařilo se načíst písmo pro PDF.");
+          }
+          return response.arrayBuffer();
+        }),
+        fetch("Assets/DejaVuSans-Bold.ttf").then(response => {
+          if (!response.ok) {
+            throw new Error("Nepodařilo se načíst tučné písmo pro PDF.");
+          }
+          return response.arrayBuffer();
+        })
+      ]);
+
+      const toBase64 = buffer => {
+        const bytes = new Uint8Array(buffer);
+        let binary = "";
+        const chunkSize = 0x8000;
+
+        for (let offset = 0; offset < bytes.length; offset += chunkSize) {
+          binary += String.fromCharCode(...bytes.subarray(offset, offset + chunkSize));
+        }
+
+        return btoa(binary);
+      };
+
+      const getPdfText = element => element.innerText.trim().replace(/\s+/g, " ");
+      const { jsPDF } = window.jspdf;
+      const pageWidth = 210;
+      const pageHeight = 297;
+      const margin = 10;
+      const contentWidth = pageWidth - margin * 2;
+      const titleLines = page.querySelector("h1").innerText
+        .trim()
+        .split(/\n+/)
+        .map(line => line.trim().toLocaleUpperCase("cs-CZ"))
+        .filter(Boolean);
+      const days = Array.from(page.querySelectorAll(".day"));
+      const partnerImages = Array.from(page.querySelectorAll(".partner-logo img"));
+      const logo = page.querySelector(".logo img");
+      const organizerLogo = page.querySelector(".organizer-logo");
+      const partnerOrganizerLogo = page.querySelector(".partner-organizer-logo");
+      const audience = page.querySelector(".audience");
+      const registration = page.querySelector(".registration");
+      const qr = registration.querySelector(".qr img");
+
+      const createPdf = scale => {
+        const pdf = new jsPDF({
+          unit: "mm",
+          format: "a4",
+          orientation: "portrait",
+          compress: true
+        });
+        const sx = value => pageWidth / 2 + (value - pageWidth / 2) * scale;
+        const sy = value => margin + (value - margin) * scale;
+        const sw = value => value * scale;
+
+        pdf.addFileToVFS("DejaVuSans.ttf", toBase64(fontFiles[0]));
+        pdf.addFont("DejaVuSans.ttf", "DejaVu", "normal");
+        pdf.addFileToVFS("DejaVuSans-Bold.ttf", toBase64(fontFiles[1]));
+        pdf.addFont("DejaVuSans-Bold.ttf", "DejaVu", "bold");
+
+        const setTextStyle = (size, weight, color) => {
+          pdf.setFont("DejaVu", weight);
+          pdf.setFontSize(size * scale);
+          pdf.setTextColor(...color);
+        };
+
+        const addTextBlock = (text, x, top, width, size, weight, color, leading) => {
+          setTextStyle(size, weight, color);
+          const lines = pdf.splitTextToSize(text, sw(width));
+          const lineHeight = sw(leading);
+          pdf.text(lines, sx(x), sy(top) + sw(size * 0.35), {
+            lineHeightFactor: leading / (size * 0.3528)
+          });
+          return top + lines.length * lineHeight;
+        };
+
+        const addMixedParagraph = (element, x, top, width, size, leading, color) => {
+          const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+          const words = [];
+
+          while (walker.nextNode()) {
+            const node = walker.currentNode;
+            const bold = Boolean(node.parentElement.closest("strong"));
+            for (const part of node.textContent.split(/(\s+)/)) {
+              if (part) {
+                words.push({ text: part, bold });
+              }
+            }
+          }
+
+          let currentX = sx(x);
+          let currentY = sy(top) + sw(size * 0.35);
+          const right = sx(x + width);
+          const lineHeight = sw(leading);
+          let hasTextOnLine = false;
+
+          for (const word of words) {
+            if (/^\s+$/.test(word.text)) {
+              if (hasTextOnLine) {
+                setTextStyle(size, word.bold ? "bold" : "normal", color);
+                const spaceWidth = pdf.getTextWidth(" ");
+                if (currentX + spaceWidth > right) {
+                  currentX = sx(x);
+                  currentY += lineHeight;
+                  hasTextOnLine = false;
+                } else {
+                  currentX += spaceWidth;
+                }
+              }
+              continue;
+            }
+
+            setTextStyle(size, word.bold ? "bold" : "normal", color);
+            const wordWidth = pdf.getTextWidth(word.text);
+
+            if (hasTextOnLine && currentX + wordWidth > right) {
+              currentX = sx(x);
+              currentY += lineHeight;
+              hasTextOnLine = false;
+            }
+
+            pdf.text(word.text, currentX, currentY);
+            currentX += wordWidth;
+            hasTextOnLine = true;
+          }
+
+          return top + (currentY - sy(top)) + sw(leading);
+        };
+
+        const addImage = (element, x, top, maxWidth, maxHeight) => {
+          const data = imageData.get(element);
+          if (!data) {
+            throw new Error(`V PDF chybí obrázek ${element.alt || element.src}.`);
+          }
+
+          const ratio = element.naturalWidth / element.naturalHeight;
+          const width = Math.min(maxWidth, maxHeight * ratio);
+          const height = width / ratio;
+          pdf.addImage(
+            data,
+            "PNG",
+            sx(x + (maxWidth - width) / 2),
+            sy(top + (maxHeight - height) / 2),
+            sw(width),
+            sw(height)
+          );
+        };
+
+        const navy = [63, 63, 61];
+        const green = [75, 136, 40];
+        const mint = [230, 243, 221];
+        const textColor = [51, 51, 51];
+        const muted = [98, 98, 98];
+        const white = [255, 255, 255];
+
+        pdf.setFillColor(...white);
+        pdf.rect(sx(0), sy(0), sw(pageWidth), sw(61), "F");
+        addImage(logo, 10, 8, 48, 16);
+
+        const dateLines = getPdfText(page.querySelector(".date")).split(" ");
+        setTextStyle(20, "bold", green);
+        pdf.text(dateLines[0], sx(pageWidth - margin), sy(13) + sw(6), { align: "right" });
+        setTextStyle(8, "normal", textColor);
+        pdf.text(dateLines.slice(1).join(" "), sx(pageWidth - margin), sy(24) + sw(3), {
+          align: "right"
+        });
+        let headerY = 29;
+        for (const line of titleLines) {
+          setTextStyle(19, "bold", textColor);
+          pdf.text(line, sx(margin), sy(headerY) + sw(6.7));
+          headerY += 7.5;
+        }
+        addTextBlock(
+          getPdfText(page.querySelector(".lead")),
+          margin,
+          47,
+          contentWidth,
+          8.5,
+          "normal",
+          muted,
+          3.8
+        );
+
+        addTextBlock(
+          getPdfText(page.querySelector("main > h2")),
+          margin,
+          67,
+          contentWidth,
+          14,
+          "bold",
+          textColor,
+          6
+        );
+        setTextStyle(7, "normal", muted);
+        pdf.text("Organizátor", sx(pageWidth - margin - 46), sy(67) + sw(14 * 0.35), {
+          align: "right"
+        });
+        addImage(organizerLogo, pageWidth - margin - 42, 67, 42, 10);
+        addTextBlock(
+          getPdfText(page.querySelector(".meta")),
+          margin,
+          74,
+          contentWidth,
+          8.5,
+          "normal",
+          muted,
+          4
+        );
+        pdf.setDrawColor(...green);
+        pdf.setLineWidth(0.8 * scale);
+        pdf.line(sx(margin), sy(84), sx(pageWidth - margin), sy(84));
+
+        const columnGap = 8;
+        const columnWidth = (contentWidth - columnGap) / 2;
+        const columnXs = [margin, margin + columnWidth + columnGap];
+        let bottom = 89;
+
+        days.forEach((day, dayIndex) => {
+          let columnY = 89;
+          const dayName = getPdfText(day.querySelector(".day-head span"));
+          const dayDate = getPdfText(day.querySelector(".day-head strong"));
+          const x = columnXs[dayIndex];
+
+          pdf.setFillColor(...mint);
+          pdf.roundedRect(sx(x), sy(columnY), sw(columnWidth), sw(8), sw(1.5), sw(1.5), "F");
+          setTextStyle(8, "bold", textColor);
+          pdf.text(dayName.toLocaleUpperCase("cs-CZ"), sx(x + 3), sy(columnY + 2) + sw(3));
+          pdf.text(dayDate, sx(x + columnWidth - 3), sy(columnY + 2) + sw(3), {
+            align: "right"
+          });
+          columnY += 11;
+
+          for (const item of day.querySelectorAll(".item")) {
+            columnY = addTextBlock(
+              getPdfText(item.querySelector("h3")).toLocaleUpperCase("cs-CZ"),
+              x,
+              columnY,
+              columnWidth,
+              8.2,
+              "bold",
+              [7, 80, 77],
+              3.6
+            ) + 1;
+            columnY = addMixedParagraph(
+              item.querySelector("p"),
+              x,
+              columnY,
+              columnWidth,
+              7.4,
+              3.3,
+              muted
+            ) + 2.5;
+          }
+
+          bottom = Math.max(bottom, columnY);
+        });
+
+        let sectionY = bottom + 1;
+        const audienceLabel = audience.querySelector("strong");
+        const audienceCopy = audience.querySelector("p");
+        pdf.setFillColor(...mint);
+        pdf.roundedRect(sx(margin), sy(sectionY), sw(contentWidth), sw(17), sw(2), sw(2), "F");
+        addTextBlock(
+          getPdfText(audienceLabel).toLocaleUpperCase("cs-CZ"),
+          margin + 4,
+          sectionY + 2,
+          contentWidth - 8,
+          8,
+          "bold",
+          textColor,
+          3.5
+        );
+        addTextBlock(
+          getPdfText(audienceCopy),
+          margin + 4,
+          sectionY + 7,
+          contentWidth - 8,
+          7.7,
+          "normal",
+          textColor,
+          3.5
+        );
+
+        sectionY += 19;
+        const partnersSection = page.querySelector(".partners");
+        const organizerLabel = "Organizátor semináře";
+        setTextStyle(10, "bold", textColor);
+        pdf.text(organizerLabel, sx(margin), sy(sectionY + 2) + sw(10 * 0.35));
+        const organizerLogoX = margin + pdf.getTextWidth(organizerLabel) + 5;
+        addImage(partnerOrganizerLogo, organizerLogoX, sectionY + 1, 40, 8);
+        sectionY += 12;
+
+        addTextBlock(
+          getPdfText(partnersSection.querySelector("h2")).toLocaleUpperCase("cs-CZ"),
+          margin,
+          sectionY,
+          contentWidth,
+          11,
+          "bold",
+          textColor,
+          5
+        );
+        sectionY += 7;
+        const partnerGap = 3;
+        const partnerWidth = (contentWidth - partnerGap * 4) / 5;
+        partnerImages.forEach((image, index) => {
+          const x = margin + index * (partnerWidth + partnerGap);
+          pdf.setFillColor(247, 250, 249);
+          pdf.setDrawColor(226, 235, 234);
+          pdf.roundedRect(sx(x), sy(sectionY), sw(partnerWidth), sw(18), sw(1), sw(1), "FD");
+          addImage(image, x + 2, sectionY + 2, partnerWidth - 4, 14);
+        });
+
+        sectionY += 20;
+        const footerTop = sectionY;
+        const footerHeight = 42;
+        pdf.setFillColor(...navy);
+        pdf.roundedRect(
+          sx(margin),
+          sy(footerTop),
+          sw(contentWidth),
+          sw(footerHeight),
+          sw(2),
+          sw(2),
+          "F"
+        );
+        addTextBlock(
+          getPdfText(registration.querySelector("h2")).toLocaleUpperCase("cs-CZ"),
+          margin + 5,
+          footerTop + 3,
+          contentWidth - 45,
+          12,
+          "bold",
+          [167, 223, 128],
+          5
+        );
+
+        const registrationParagraphs = Array.from(registration.querySelectorAll("p"))
+          .filter(paragraph => !paragraph.classList.contains("contact"));
+        let registrationY = footerTop + 10;
+        for (const paragraph of registrationParagraphs) {
+          registrationY = addTextBlock(
+            getPdfText(paragraph),
+            margin + 5,
+            registrationY,
+            contentWidth - 45,
+            7.2,
+            "normal",
+            white,
+            3.2
+          ) + 1;
+        }
+
+        const formLink = registration.querySelector(".button");
+        const buttonY = registrationY + 1;
+        pdf.setFillColor(115, 189, 64);
+        pdf.roundedRect(sx(margin + 5), sy(buttonY), sw(53), sw(8), sw(1.5), sw(1.5), "F");
+        addTextBlock(
+          getPdfText(formLink).toLocaleUpperCase("cs-CZ"),
+          margin + 8,
+          buttonY + 1.5,
+          48,
+          7,
+          "bold",
+          [36, 55, 25],
+          3
+        );
+        pdf.link(sx(margin + 5), sy(buttonY), sw(53), sw(8), { url: formLink.href });
+
+        const contact = registration.querySelector(".contact a");
+        setTextStyle(7.5, "normal", white);
+        pdf.text(
+          contact.href.replace("mailto:", ""),
+          sx(margin + 63),
+          sy(buttonY + 1.5) + sw(2.5)
+        );
+        pdf.link(sx(margin + 63), sy(buttonY), sw(55), sw(8), { url: contact.href });
+        addImage(qr, pageWidth - margin - 31, footerTop + 5, 25, 25);
+
+        return { pdf, bottom: sy(footerTop + footerHeight) };
+      };
+
+      let result = createPdf(1);
+      const maxContentBottom = pageHeight - margin;
+      if (result.bottom > maxContentBottom) {
+        const scale = Math.max(0.78, (maxContentBottom - margin) / (result.bottom - margin));
+        result = createPdf(scale);
+      }
+
+      if (result.bottom > maxContentBottom) {
+        throw new Error("Text pozvánky se nevejde na jednu stránku A4.");
+      }
+
+      result.pdf.save("pozvanka-seminar-kyberneticka-bezpecnost.pdf");
+
+      pdfStatus.textContent = "PDF je připravené ke stažení.";
+    } catch (error) {
+      console.error("Nepodařilo se vytvořit PDF pozvánky.", error);
+      pdfStatus.textContent = "PDF se nepodařilo vytvořit. Zkuste to prosím znovu.";
+    } finally {
+      pdfButton.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
